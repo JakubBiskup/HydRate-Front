@@ -21,6 +21,12 @@ $(document).ready(function() {
             $('.minerals').append(data.minerals);
             $('.water-description').append(data.description);
 
+            var seeReviewsLink=document.createElement("a");
+            seeReviewsLink.href="reviews-of-single-water.html?id="+waterId;
+            seeReviewsLink.text="See reviews";
+            document.getElementById("see-reviews-of-this-water-button").appendChild(seeReviewsLink);
+
+
 
         }})});
 

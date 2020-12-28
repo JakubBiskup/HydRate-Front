@@ -13,7 +13,7 @@ $(document).ready(function() {
                 var textOnListElement=document.createTextNode(data[index].score.toString() + "/100  "+ data[index].water.name);
                 singleReviewLink.appendChild(textOnListElement);
 
-                listElement.appendChild(singleReviewLink)
+                listElement.appendChild(singleReviewLink);
 
                 document.getElementById("reviewList").appendChild(listElement);
         }}})});
