@@ -16,7 +16,6 @@ $(document).ready(function() {
             $('.review-header').append("Review of:  " + data.water.name);
             $('.score').append(data.score+"/100");
             $('.review-text').append(data.text);
-            //$('.waterLink').href="/water?id="+data.water.id;
             var a= document.getElementsByClassName("waterLink");
             a.href="/water?id="+data.water.id;
 
