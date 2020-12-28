@@ -8,7 +8,7 @@ $(document).ready(function() {
                 var listElement=document.createElement("LI");
 
                 var singleReviewLink=document.createElement("a");
-                singleReviewLink.href="review.html?id="+data[index].id; //probably wrong href
+                singleReviewLink.href="review.html?id="+data[index].id;
 
                 var textOnListElement=document.createTextNode(data[index].score.toString() + "/100  "+ data[index].water.name);
                 singleReviewLink.appendChild(textOnListElement);
