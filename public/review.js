@@ -27,4 +27,5 @@ $(document).ready(function() {
 
             $('.see-water-link').append(seeWaterLink);
             $('.title').append(data.id);
+            document.getElementById('edit-link').href="edit-review-form.html?review-id="+reviewId+"&name="+data.water.name;
             }})});
