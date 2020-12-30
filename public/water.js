@@ -31,6 +31,11 @@ $(document).ready(function() {
             addReviewLink.text="Add review";
             document.getElementById("add-review-of-this-water-button").appendChild(addReviewLink);
 
+            var editLink=document.createElement("a");
+            editLink.href="edit-water-form.html?id="+waterId;
+            editLink.text="Edit water";
+            document.getElementById("edit-this-water-button").appendChild(editLink);
+
 
 
         }})});

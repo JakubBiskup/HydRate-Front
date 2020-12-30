@@ -26,12 +26,5 @@ $(document).ready(function() {
             seeWaterLink.appendChild(seeWaterText);
 
             $('.see-water-link').append(seeWaterLink);
-
-
-
-
-            var p=document.getElementsByClassName("see-water-link");
-            //p.appendChild(seeWaterLink);
-            $('.waterLink').append(data.water.name);
             $('.title').append(data.id);
             }})});
