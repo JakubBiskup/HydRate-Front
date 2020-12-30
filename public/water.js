@@ -26,6 +26,11 @@ $(document).ready(function() {
             seeReviewsLink.text="See reviews";
             document.getElementById("see-reviews-of-this-water-button").appendChild(seeReviewsLink);
 
+            var addReviewLink=document.createElement("a");
+            addReviewLink.href="add-review-form.html?water-id="+waterId+"&name="+data.name;
+            addReviewLink.text="Add review";
+            document.getElementById("add-review-of-this-water-button").appendChild(addReviewLink);
+
 
 
         }})});

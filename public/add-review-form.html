@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title class="title">Add review of </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="addreview.js"></script>
+</head>
+<body>
+<h1 class="add-review-header">You are reviewing </h1>
+<br>
+<form id="add-review-form">
+    <label for="score">Score (0-100)</label>
+    <br>
+    <input type="number" value="50" name="score" id="score" min="0" max="100">
+    <br>
+    <label for="text">Review text</label>
+    <br>
+    <textarea name="text" id="text" rows="12" cols="40"></textarea>
+    <br>
+    <input type="submit" id="add-review" value="Add review">
+</form>
+</body>
+</html>
