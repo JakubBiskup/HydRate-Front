@@ -10,6 +10,20 @@ function getParameterByName(name, url = window.location.href) {
 let waterId=getParameterByName("id")
 
 $(document).ready(function() {
+    document.getElementById('delete-button').onclick=function(e){
+        $.ajax({
+            type: "DELETE",
+            url: "http://localhost:8080/water/"+waterId,
+            success: function (){
+                alert("Water of id: " +waterId+" is deleted");
+                window.location.href="all-water.html";
+                
+            },
+            error: function (errMsg) {
+                alert(errMsg);
+            }
+        })
+    }
     $.ajax({
         url: "http://localhost:8080/water/"+waterId,
         type : "GET",
