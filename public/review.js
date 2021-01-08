@@ -7,12 +7,20 @@ function getParameterByName(name, url = window.location.href) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 let reviewId=getParameterByName("id")
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
 
 $(document).ready(function() {
     document.getElementById('delete-button').onclick=function(e){
                 $.ajax({
                     type: "DELETE",
                     url: "http://localhost:8080/reviews/"+reviewId,
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', getCookie("HydRateJWT"));
+                    },
                     success: function (){
                         alert("Review of id: " +reviewId+" is deleted");
                         window.location.href="all-reviews.html";
@@ -26,6 +34,9 @@ $(document).ready(function() {
         $.ajax({
             url: "http://localhost:8080/reviews/"+reviewId,
             type : "GET",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', getCookie("HydRateJWT"));
+            },
             success : function(data) {
                 $('.review-header').append("Review of:  " + data.water.name);
                 $('.score').append(data.score+"/100");

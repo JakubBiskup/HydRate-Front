@@ -6,6 +6,12 @@ function getParameterByName(name, url = window.location.href) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+
 
 let waterId=getParameterByName("id")
 
@@ -14,6 +20,9 @@ $(document).ready(function() {
         $.ajax({
             type: "DELETE",
             url: "http://localhost:8080/water/"+waterId,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', getCookie("HydRateJWT"));
+            },
             success: function (){
                 alert("Water of id: " +waterId+" is deleted");
                 window.location.href="all-water.html";

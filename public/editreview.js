@@ -6,6 +6,11 @@ function getParameterByName(name, url = window.location.href) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
 
 let waterName=getParameterByName("name");
 let reviewId=getParameterByName("review-id");
@@ -18,6 +23,9 @@ $(document).ready(function (){
     $.ajax({
         url: "http://localhost:8080/reviews/"+reviewId,
         type : "GET",
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader('Authorization', getCookie("HydRateJWT"));
+        },
         success : function(data) {
             document.getElementById('score').value=data.score;
             document.getElementById('text').value=data.text;
@@ -34,6 +42,9 @@ $(document).ready(function (){
         $.ajax({
             type: "PUT",
             url: "http://localhost:8080/reviews/"+reviewId,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', getCookie("HydRateJWT"));
+            },
             data:JSON.stringify(objectFormData),
             contentType:"application/json; charset=utf-8",
             dataType:"json",

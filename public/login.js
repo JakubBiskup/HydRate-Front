@@ -10,8 +10,8 @@ $(document).ready(function (){
             contentType:"application/json; charset=utf-8",
             dataType:"json",
             success: function (data) {
-                document.cookie="HydRateJWT=Bearer "+data+";SameSite=Lax";
-                alert(data);
+                document.cookie="HydRateJWT=Bearer "+data.jwt+";SameSite=Lax";
+                alert("Bearer "+data.jwt);
             },
             error: function(errMsg){
                 alert(errMsg);
