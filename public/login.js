@@ -13,8 +13,8 @@ $(document).ready(function (){
                 document.cookie="HydRateJWT=Bearer "+data.jwt+";SameSite=Lax";
                 alert("Bearer "+data.jwt);
             },
-            error: function(errMsg){
-                alert(errMsg);
-            }
+            error: function(data){
+                if(data.status==403){alert("403 Forbidden (most likely bad credentials)");
+            }}
         })
     }})
