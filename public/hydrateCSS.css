@@ -1,6 +1,7 @@
 body {  
     background-color: rgb(65, 193, 236);
     text-align: center;
+    font-size: larger;
 }  
 h1 {  
     color: rgb(0, 0, 94);  
@@ -12,13 +13,13 @@ h1 {
 button {
     margin: auto;
     background-color: #190681;
-    border: 10px solid whitesmoke;
+    border: 0.8rem solid whitesmoke;
     color: wheat;
-    padding: 8px 16px;
+    padding: 0.5rem 1rem;
     text-align: center;
     text-decoration: underline;
     display: inline-block;
-    font-size: 18px;
+    font-size: 1.5rem;
 }
 ul{
     display: inline-block;
