@@ -1,0 +1,30 @@
+body {  
+    background-color: rgb(65, 193, 236);
+    text-align: center;
+}  
+h1 {  
+    color: rgb(0, 0, 94);  
+    margin: auto;
+    vertical-align: middle;
+    text-align:center;
+    
+}
+button {
+    margin: auto;
+    background-color: #190681;
+    border: 10px solid whitesmoke;
+    color: wheat;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: underline;
+    display: inline-block;
+    font-size: 18px;
+}
+ul{
+    display: inline-block;
+    text-align: left;
+}
+
+a {
+    color: wheat;
+}

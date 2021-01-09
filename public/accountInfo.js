@@ -1,6 +1,6 @@
 $(document).ready(function(){
     var loggedInUserInfo=document.createElement("div");
-    loggedInUserInfo.style.cssText = 'background:teal';
+    loggedInUserInfo.style.cssText = 'background:lightblue';
     var paragraph=document.createElement("p");
     var textInP=document.createTextNode("You are authenticated as: " + recognize());
     var textInPLine2=document.createTextNode('Your role: '+ recognizeRole());
@@ -9,18 +9,21 @@ $(document).ready(function(){
     paragraph.appendChild(br);
     paragraph.appendChild(textInPLine2);
     loggedInUserInfo.appendChild(paragraph);
+    var logButton=document.createElement("button");
     if(isCookieThere()){
         var logoutLink=document.createElement("a");
         var textInLink=document.createTextNode("Logout");
         logoutLink.href="logout.html";
         logoutLink.appendChild(textInLink);
-        loggedInUserInfo.appendChild(logoutLink);
+        logButton.appendChild(logoutLink);
+        loggedInUserInfo.appendChild(logButton);
     }else{
         var loginLink=document.createElement("a");
         var textInLink=document.createTextNode("Log in");
         loginLink.href="login.html";
         loginLink.appendChild(textInLink);
-        loggedInUserInfo.appendChild(loginLink);
+        logButton.appendChild(loginLink);
+        loggedInUserInfo.appendChild(logButton);
     }
 
     document.body.appendChild(loggedInUserInfo);
