@@ -26,9 +26,16 @@ $(document).ready(function() {
                         window.location.href="all-reviews.html";
                         
                     },
-                    error: function (errMsg) {
-                        alert(errMsg);
-                    }
+                    error: function (xhr,status,error) {
+                        var failureResponseText=xhr.responseText;
+                        var parsedFailureResponseText=JSON.parse(failureResponseText);
+                        var statusFromXhr=toEmptyStringIfUndefined(xhr.status);
+                        var httpStatus=toEmptyStringIfUndefined(parsedFailureResponseText.httpStatus);
+                        var message=toEmptyStringIfUndefined(parsedFailureResponseText.message);
+                        var errorFromResponse=toEmptyStringIfUndefined(parsedFailureResponseText.error);
+                        var statusFromResponse=toEmptyStringIfUndefined(parsedFailureResponseText.status);
+                        alert(statusFromXhr+"   "+""+"  "+errorFromResponse+"   "+message+"   "+statusFromResponse+"  "+httpStatus);
+                     }
                 })
             }
         $.ajax({
@@ -54,5 +61,15 @@ $(document).ready(function() {
                 $('.title').append(data.id);
                 document.getElementById('edit-link').href="edit-review-form.html?review-id="+reviewId+"&name="+data.water.name;
                 
-            }})});
+            },
+            error: function (xhr,status,error) {
+                var failureResponseText=xhr.responseText;
+                var parsedFailureResponseText=JSON.parse(failureResponseText);
+                var statusFromXhr=toEmptyStringIfUndefined(xhr.status);
+                var httpStatus=toEmptyStringIfUndefined(parsedFailureResponseText.httpStatus);
+                var message=toEmptyStringIfUndefined(parsedFailureResponseText.message);
+                var errorFromResponse=toEmptyStringIfUndefined(parsedFailureResponseText.error);
+                var statusFromResponse=toEmptyStringIfUndefined(parsedFailureResponseText.status);
+                alert(statusFromXhr+"   "+""+"  "+errorFromResponse+"   "+message+"   "+statusFromResponse+"  "+httpStatus);
+             }})});
     

@@ -30,8 +30,17 @@ $(document).ready(function (){
             document.getElementById('score').value=data.score;
             document.getElementById('text').value=data.text;
             water=data.water;
-
-        }})});
+        },
+        error: function (xhr,status,error) {
+            var failureResponseText=xhr.responseText;
+            var parsedFailureResponseText=JSON.parse(failureResponseText);
+            var statusFromXhr=toEmptyStringIfUndefined(xhr.status);
+            var httpStatus=toEmptyStringIfUndefined(parsedFailureResponseText.httpStatus);
+            var message=toEmptyStringIfUndefined(parsedFailureResponseText.message);
+            var errorFromResponse=toEmptyStringIfUndefined(parsedFailureResponseText.error);
+            var statusFromResponse=toEmptyStringIfUndefined(parsedFailureResponseText.status);
+            alert(statusFromXhr+"   "+""+"  "+errorFromResponse+"   "+message+"   "+statusFromResponse+"  "+httpStatus);
+         }})});
 $(document).ready(function (){
     const editReviewForm=document.getElementById("edit-review-form");
     editReviewForm.onsubmit=function (e){
@@ -51,9 +60,16 @@ $(document).ready(function (){
             success: function (){
                 window.location.href="review.html?id="+reviewId;
             },
-            error: function (errMsg) {
-                alert(errMsg);
-            }
+            error: function (xhr,status,error) {
+                var failureResponseText=xhr.responseText;
+                var parsedFailureResponseText=JSON.parse(failureResponseText);
+                var statusFromXhr=toEmptyStringIfUndefined(xhr.status);
+                var httpStatus=toEmptyStringIfUndefined(parsedFailureResponseText.httpStatus);
+                var message=toEmptyStringIfUndefined(parsedFailureResponseText.message);
+                var errorFromResponse=toEmptyStringIfUndefined(parsedFailureResponseText.error);
+                var statusFromResponse=toEmptyStringIfUndefined(parsedFailureResponseText.status);
+                alert(statusFromXhr+"   "+""+"  "+errorFromResponse+"   "+message+"   "+statusFromResponse+"  "+httpStatus);
+             }
         })
 
     }

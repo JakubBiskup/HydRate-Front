@@ -1,3 +1,10 @@
+function toEmptyStringIfUndefined(variable){
+    if(variable==undefined){
+        return "";
+    }else{
+        return variable;
+    }
+}
 $(document).ready(function (){
     const loginForm=document.getElementById("login-form");
     loginForm.onsubmit=function (e){

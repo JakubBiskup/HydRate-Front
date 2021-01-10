@@ -54,3 +54,11 @@ function recognizeRole(){
         return noRoleMsg;
         }
 }
+
+function toEmptyStringIfUndefined(variable){
+    if(variable==undefined){
+        return "";
+    }else{
+        return variable;
+    }
+}
