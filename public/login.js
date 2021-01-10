@@ -11,7 +11,7 @@ $(document).ready(function (){
             dataType:"json",
             success: function (data) {
                 document.cookie="HydRateJWT=Bearer "+data.jwt+";SameSite=Lax";
-                alert("Bearer "+data.jwt);
+                window.location.href="index.html";
             },
             error: function(data){
                 if(data.status==403){alert("403 Forbidden (most likely bad credentials)");
